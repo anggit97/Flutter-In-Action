@@ -1,8 +1,12 @@
 # flutter_app
 
-A new Flutter application.
+Aplikasi sedarhana untuk pembalajaran flutter
 
-## Getting Started
+## Fitur
 
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+- Menampilkan list dummy text dengan library (english_words)
+![ScreenShot](https://github.com/anggit97/Flutter-In-Action/Screenshot_1538830132.png)
+- Melakukan love dan unlove pada list
+![ScreenShot](https://github.com/anggit97/Flutter-In-Action/Screenshot_1538830136.png)
+- Menampilkan list yang dilove
+![ScreenShot](https://github.com/anggit97/Flutter-In-Action/Screenshot_1538830139.png)
