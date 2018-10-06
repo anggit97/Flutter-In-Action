@@ -36,7 +36,8 @@ class RandomWordState extends State<RandomWords>{
       appBar: AppBar(
         title: Text("Startup Name Generator"),
         actions: <Widget>[
-          new IconButton(icon: const Icon(Icons.list), onPressed: _pushSaved)
+          new IconButton(icon: const Icon(Icons.list), onPressed: _pushSaved),
+          new IconButton(icon: const Icon(Icons.remove_red_eye), onPressed: _showDetail)
         ],
       ),
       body: _buildSuggestions(),
@@ -91,7 +92,7 @@ class RandomWordState extends State<RandomWords>{
           }
 
           return _buildRow(_suggestions[index]);
-          
+
         });
   }
 
@@ -118,6 +119,124 @@ class RandomWordState extends State<RandomWords>{
         });
       },
     );
+  }
+
+  //Show Detail Page
+  void _showDetail(){
+      Navigator.of(context).push(
+        new MaterialPageRoute(
+            builder: (BuildContext context){
+              return Scaffold(
+                appBar: new AppBar(
+                  title: const Text("Detail Page"),
+                ),
+                body: Container(
+                  color: Colors.white,
+                  child: ListView(
+                    children: [
+                      new Image(image: new AssetImage('assets/images/lake.jpg'), width: 600.0, height: 240.0, fit: BoxFit.cover,),
+                      _buildTitleSection(),
+                      _buildButtonSection(),
+                      _buildTextSection()
+                    ],
+                  ),
+                )
+              );
+            }
+        )
+      );
+  }
+
+  Widget _buildTitleSection(){
+    Widget titleSection = Container(
+      padding: const EdgeInsets.all(32.0),
+      child: Row(
+        children: [
+          Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.only(bottom : 16.0),
+                    child: Text(
+                      'Danau Simalakama Sirih',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ),
+                  Text(
+                    "Banten, Indonesia",
+                    style: TextStyle(
+                      color: Colors.grey[500]
+                    ),
+                  )
+                ],
+              )
+          ),
+          Icon(
+            Icons.star,
+            color : Colors.red[500]
+          ),
+          Text(
+            "41"
+          )
+        ],
+      ),
+    );
+
+    return titleSection;
+  }
+
+  Widget _buildButtonSection(){
+    Column buildButtonColumn(IconData icon, String label) {
+      Color color = Theme.of(context).primaryColor;
+
+      return Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(icon, color: color),
+          Container(
+            margin: const EdgeInsets.only(top: 8.0),
+            child: Text(
+              label,
+              style: TextStyle(
+                fontSize: 12.0,
+                fontWeight: FontWeight.w400,
+                color: color,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
+
+    Widget buttonSection = Container(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          buildButtonColumn(Icons.call, 'CALL'),
+          buildButtonColumn(Icons.near_me, 'ROUTE'),
+          buildButtonColumn(Icons.share, 'SHARE'),
+        ],
+      ),
+    );
+
+
+    return buttonSection;
+  }
+
+  Widget _buildTextSection(){
+    Widget textSection = Container(
+      padding: const EdgeInsets.all(32.0),
+      child: Text(
+        "Danau Toba adalah danau alami besar di Indonesia yang berada di kaldera gunung berapi super. Danau ini memiliki panjang 100 kilometer, lebar 30 kilometer, dan kedalaman 505 meter. Danau ini terletak di tengah pulau Sumatera bagian utara dengan ketinggian permukaan sekitar 900 meter.",
+        softWrap: true,
+      ),
+    );
+
+    return textSection;
   }
 
 }
