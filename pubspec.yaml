@@ -25,6 +25,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+  build_runner: ^0.9.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -39,6 +40,7 @@ flutter:
 
   assets:
     - assets/images/lake.jpg
+    - assets/student.json
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
