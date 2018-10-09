@@ -26,4 +26,6 @@ Aplikasi sedarhana untuk pembalajaran flutter
 
 <br/>
 
+Demo Aplikasi : https://play.google.com/store/apps/details?id=testdrive.flutterapp
+
 Selamat belajar guys..
